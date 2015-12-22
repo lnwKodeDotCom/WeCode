@@ -25,7 +25,10 @@ List.schema = new SimpleSchema({
         type: String,
         label: 'Details',
         optional: true,
-        max: 200,
+        max: 1000,
+        autoform: {
+            rows: 10,
+        }
     },
 
     owner_id: {

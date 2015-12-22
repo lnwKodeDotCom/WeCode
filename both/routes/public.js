@@ -5,18 +5,18 @@ FlowRouter.route('/', {
     }
 });
 
-FlowRouter.route('/wish', {
-    name: 'wish',
+FlowRouter.route('/posts', {
+    name: 'posts',
 
     action() {
-        BlazeLayout.render('default', {main: 'wishPage'});
+        BlazeLayout.render('default', {main: 'listPostPage'});
     }
 });
 
-FlowRouter.route('/wish/new', {
-    name: 'newWish',
+FlowRouter.route('/add', {
+    name: 'addPost',
 
     action() {
-        BlazeLayout.render('default', {main: 'newWishPage'});
+        BlazeLayout.render('default', {main: 'addPostPage'});
     }
 });
