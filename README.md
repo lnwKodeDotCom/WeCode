@@ -1,10 +1,14 @@
-ZapKit - Starter
+We Code App
 ----------------
 
-Develop from blank.
+Develop from ZapKit-Starter.
 
 <table>
   <tbody>
+    <tr>
+      <th>App Version</th>
+      <td>v0.0.1</td>
+    </tr>
     <tr>
       <th>Kit Version</th>
       <td>v0.0.1</td>
