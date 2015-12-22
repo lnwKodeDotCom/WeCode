@@ -26,3 +26,4 @@ aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
 arillo:flow-router-helpers
+zimme:active-route
