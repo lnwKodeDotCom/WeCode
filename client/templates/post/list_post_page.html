@@ -4,7 +4,9 @@
     </div>
 
     {{#each post in list}}
-        <div class="jumbotron post"><h3>{{post.title}}</h3></div>
+        <div class="jumbotron post">
+            <a href="{{pathFor 'post' id=post._id}}"><h3>{{post.title}}</h3></a>
+        </div>
     {{else}}
         No data
     {{/each}}
