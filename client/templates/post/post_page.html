@@ -1,7 +1,11 @@
 <template name="postPage">
-    <div class="jumbotron post">
-        <h3>{{post.title}}</h3>
-        <hr/>
-        <p>{{{renderMarkdown post.description}}}</p>
-    </div>
+    {{#if Template.subscriptionsReady}}
+        <div class="jumbotron post">
+            <h3>{{post.title}}</h3>
+            <hr/>
+            <div class="markdown">{{{renderMarkdown post.description}}}</div>
+        </div>
+    {{else}}
+        {{> spinner}}
+    {{/if}}
 </template>
