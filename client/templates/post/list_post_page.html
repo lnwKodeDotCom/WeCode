@@ -1,7 +1,10 @@
 <template name="listPostPage">
-    <h2>{{title}}</h2>
+    <div class="jumbotron">
+        <h2>Posts Page</h2>
+    </div>
+
     {{#each post in list}}
-        <div class="jumbotron"><h3>{{post.title}}</h3></div>
+        <div class="jumbotron post"><h3>{{post.title}}</h3></div>
     {{else}}
         No data
     {{/each}}
