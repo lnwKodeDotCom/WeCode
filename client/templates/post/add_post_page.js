@@ -1,7 +1,7 @@
 AutoForm.hooks({
-    newWish: {
+    addPostForm: {
         onSuccess: function(formType, result) {
-            FlowRouter.go('wish');
+            FlowRouter.go('posts');
         }
     }
 });

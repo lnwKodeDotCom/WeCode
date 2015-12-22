@@ -1,0 +1,8 @@
+<template name="listPostPage">
+    <h2>{{title}}</h2>
+    {{#each post in list}}
+        <div class="jumbotron"><h3>{{post.title}}</h3></div>
+    {{else}}
+        No data
+    {{/each}}
+</template>
