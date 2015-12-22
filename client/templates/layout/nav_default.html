@@ -12,9 +12,9 @@
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li class=""><a href="{{pathFor 'home'}}">Home</a></li>
-                    <li class=""><a href="{{pathFor 'posts'}}">Posts</a></li>
-                    <li class=""><a href="{{pathFor 'addPost'}}">Add</a></li>
+                    <li class="{{isActiveRoute 'home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
+                    <li class="{{isActiveRoute 'posts'}}"><a href="{{pathFor 'posts'}}">Posts</a></li>
+                    <li class="{{isActiveRoute 'addPost'}}"><a href="{{pathFor 'addPost'}}">Add</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#">Help</a></li>

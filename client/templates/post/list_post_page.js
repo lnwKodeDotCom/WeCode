@@ -1,4 +1,8 @@
 Template.listPostPage.onCreated( () => {
+    var t = Template.instance();
+    t.autorun(() => {
+        t.subscribe('list');
+    })
 
 });
 

@@ -3,9 +3,15 @@
         <h2>Post List</h2>
     </div>
 
-    {{#each post in list}}
-        <div class="jumbotron post"><h3>{{post.title}}</h3></div>
+    {{#if Template.subscriptionsReady}}
+        {{#each post in list}}
+            <div class="jumbotron post">
+                <a href="{{pathFor 'post' id=post._id}}"><h3>{{post.title}}</h3></a>
+            </div>
+        {{else}}
+            No data
+        {{/each}}
     {{else}}
-        No data
-    {{/each}}
+        {{> spinner}}
+    {{/if}}
 </template>

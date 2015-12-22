@@ -13,6 +13,13 @@ FlowRouter.route('/posts', {
     }
 });
 
+FlowRouter.route('/post/:id', {
+    name: 'post',
+    action() {
+        BlazeLayout.render('default', {main: 'postPage'});
+    }
+})
+
 FlowRouter.route('/add', {
     name: 'addPost',
 
