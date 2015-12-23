@@ -2,7 +2,7 @@
     margin-top: 72px;
 
     .jumbotron.post {
-        padding-top: 24px;
+        padding-top: 12px;
         padding-bottom: 24px;
 
         .markdown p {
@@ -10,7 +10,45 @@
         }
     }
 
+    .jumbotron.slim {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .jumbotron .head-and-button {
+        h3 {
+            display: inline-block;
+        }
+        div {
+            display: inline-block;
+            position: relative;
+            a {
+                position: absolute;
+                top: 10px;
+                right: 0px;
+            }
+        }
+    }
+
     .markdownControls {
         display: none;
+    }
+
+    .selectize-input {
+        border-radius: 0;
+        &.focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+    .selectize-input > .item {
+        border-radius: 0;
+        background-color: rgb(43, 62, 80);
+        color: white;
+        padding: 2px 5px;
+        &.active {
+            background-color: #DF691A;
+        }
     }
 }

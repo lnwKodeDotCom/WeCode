@@ -1,0 +1,13 @@
+<template name="loggedInOnly">
+    {{#if authInProcess}}
+        {{> spinner}}
+    {{else}}
+        {{#if canShow}}
+            {{> UI.contentBlock }}
+        {{else}}
+            <p class="center-block text-center">
+                You are not authorized to view this page.<br/>
+                Please login to view this page</p>
+        {{/if}}
+    {{/if}}
+</template>

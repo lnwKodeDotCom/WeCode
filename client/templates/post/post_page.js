@@ -1,10 +1,16 @@
 Template.postPage.onCreated( () => {
     var t = Template.instance();
-    t.subscribe('listForId',FlowRouter.getParam('id'));
+    t.post_id = FlowRouter.getParam('id');
+    t.autorun(()=>{
+        t.subscribe('listForId', t.post_id );
+    });
 });
 
 Template.postPage.helpers({
-    post: () => {
+    post() {
         return List.findOne();
+    },
+    ownDocument() {
+        return Meteor.userId() === List.findOne().owner_id;
     }
 });

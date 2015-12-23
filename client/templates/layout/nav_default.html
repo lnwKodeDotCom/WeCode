@@ -14,10 +14,12 @@
                 <ul class="nav navbar-nav">
                     <li class="{{isActiveRoute 'home'}}"><a href="{{pathFor 'home'}}">Home</a></li>
                     <li class="{{isActiveRoute 'posts'}}"><a href="{{pathFor 'posts'}}">Posts</a></li>
+                    {{#if currentUser}}
                     <li class="{{isActiveRoute 'addPost'}}"><a href="{{pathFor 'addPost'}}">Add</a></li>
+                    {{/if}}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Help</a></li>
+                    {{> loginButtons}}
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

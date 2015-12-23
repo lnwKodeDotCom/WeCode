@@ -14,6 +14,29 @@ List.deny({
 
 List.schema = new SimpleSchema({
 
+    //index_name: {
+    //    type: String,
+    //    optional: true,
+    //    autoValue: function() {
+    //        var name = this.field("title");
+    //
+    //        if(name.isSet)
+    //        {
+    //            return Modules.both.utilities.string2slug(name.value);
+    //        }
+    //        else
+    //        {
+    //            // Prevent user from supplying their own value
+    //            this.unset();
+    //        }
+    //    },
+    //    index: true,
+    //    unique: true,
+    //    autoform: {
+    //        omit: true,
+    //    }
+    //},
+
     title: {
         type: String,
         label: 'Title',
@@ -32,9 +55,37 @@ List.schema = new SimpleSchema({
         }
     },
 
+    tags: {
+        type: [String],
+        optional: true,
+        max: 20,
+        autoform: {
+            type: "selectize",
+            afFieldInput: {
+                multiple: true,
+                selectizeOptions: {
+                    delimiter: ',',
+                    persist: true,
+                    create: true,
+                    createOnBlur: true,
+                }
+            }
+        },
+    },
+
     owner_id: {
         type: String,
         optional: true,
+        autoValue: function() {
+            const userId = Meteor.userId() || '';
+            if (this.isInsert) {
+                return userId;
+            } else if (this.isUpsert) {
+                return {$setOnInsert: userId};
+            } else {
+                this.unset();  // Prevent user from supplying their own value
+            }
+        },
         autoform: {
             omit: true,
         }
@@ -55,7 +106,20 @@ List.schema = new SimpleSchema({
         autoform: {
             omit: true,
         }
+    },
 
+    date_updated: {
+        type: Date,
+        optional: true,
+        autoValue: function() {
+            if (this.isUpdate) {
+                return new Date();
+            }
+        },
+        denyInsert: true,
+        autoform: {
+            omit: true,
+        }
     }
 });
 
