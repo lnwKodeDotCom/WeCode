@@ -1,0 +1,36 @@
+<template name="afMarkdownExt">
+
+    <!--<section class="markdownControls">-->
+        <!--<select class="markdownHeader form-control">-->
+            <!--<option value="">KKK</option>-->
+            <!--<option value="#"># header 1</option>-->
+            <!--<option value="##">## header 2</option>-->
+            <!--<option value="##">### header 3</option>-->
+        <!--</select>-->
+        <!--<button class="markdownBold select btn">**bold**</button>-->
+        <!--<button class="markdownItalic select btn">*italic*</button>-->
+        <!--<button class="markdownList select btn">- list</button>-->
+        <!--<a href="https://help.github.com/articles/markdown-basics/" target="_blank">help</a>-->
+    <!--</section>-->
+
+    <ul class="nav nav-tabs">
+        <li class="active"><a aria-expanded="true" href="#markdown" data-toggle="tab">Markdown</a></li>
+        <li class=""><a aria-expanded="false" href="#preview" data-toggle="tab">Preview</a></li>
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active in" id="markdown">
+            <section class="markdownContent">
+                <textarea class="form-control markdownInput" {{atts}}>{{value}}</textarea>
+            </section>
+        </div>
+        <div class="tab-pane fade" id="preview">
+            <section class="markdownPreview">
+                <span class="form-control preview">
+                    {{{markdownText}}}
+                </span>
+            </section>
+        </div>
+    </div>
+
+</template>

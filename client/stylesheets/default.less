@@ -48,13 +48,23 @@
         }
     }
 
-    .markdownControls, .markdownPreview {
-        display: none;
-    }
-
-    .markdownContent {
+    .markdownContent, .markdownPreview {
         width: 100%;
+        float: none;
+        padding-left: 0;
+
+        .preview {
+            color: inherit;
+            background-color: rgb(78, 93, 108);
+        }
     }
+    //.markdownControls, .markdownPreview {
+    //    display: none;
+    //}
+    //
+    //.markdownContent {
+    //    width: 100%;
+    //}
 
     .selectize-input {
         border-radius: 0;

@@ -48,10 +48,9 @@ List.schema = new SimpleSchema({
         type: String,
         label: 'Details',
         optional: true,
-        max: 1000,
+        max: 3000,
         autoform: {
             type: 'markdown',
-            rows: 10,
         }
     },
 
