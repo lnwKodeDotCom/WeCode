@@ -32,9 +32,42 @@ List.schema = new SimpleSchema({
         }
     },
 
+    tags: {
+        type: [String],
+        optional: true,
+        max: 20,
+        autoform: {
+            type: "selectize",
+            afFieldInput: {
+                multiple: true,
+                selectizeOptions: {
+                    delimiter: ',',
+                    persist: false,
+                    create: function(input) {
+                        return {
+                            value: input,
+                            text: input
+                        }
+                    },
+                    options: ['abc','def']
+                }
+            }
+        },
+    },
+
     owner_id: {
         type: String,
         optional: true,
+        autoValue: function() {
+            const userId = Meteor.userId() || '';
+            if (this.isInsert) {
+                return userId;
+            } else if (this.isUpsert) {
+                return {$setOnInsert: userId};
+            } else {
+                this.unset();  // Prevent user from supplying their own value
+            }
+        },
         autoform: {
             omit: true,
         }
@@ -55,7 +88,17 @@ List.schema = new SimpleSchema({
         autoform: {
             omit: true,
         }
+    },
 
+    date_updated: {
+        type: Date,
+        optional: true,
+        autoValue: function() {
+            if (this.isUpdate) {
+                return new Date();
+            }
+        },
+        denyInsert: true,
     }
 });
 
