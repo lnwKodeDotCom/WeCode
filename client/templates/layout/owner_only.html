@@ -1,0 +1,7 @@
+<template name="ownerOnly">
+    {{#if ownDocument}}
+        {{> UI.contentBlock }}
+    {{else}}
+        <p class="center-block text-center">You are not authorized to view this page.</p>
+    {{/if}}
+</template>
