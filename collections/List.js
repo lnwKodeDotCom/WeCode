@@ -88,7 +88,17 @@ List.schema = new SimpleSchema({
         autoform: {
             omit: true,
         }
+    },
 
+    date_updated: {
+        type: Date,
+        optional: true,
+        autoValue: function() {
+            if (this.isUpdate) {
+                return new Date();
+            }
+        },
+        denyInsert: true,
     }
 });
 
