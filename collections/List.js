@@ -14,6 +14,29 @@ List.deny({
 
 List.schema = new SimpleSchema({
 
+    //index_name: {
+    //    type: String,
+    //    optional: true,
+    //    autoValue: function() {
+    //        var name = this.field("title");
+    //
+    //        if(name.isSet)
+    //        {
+    //            return Modules.both.utilities.string2slug(name.value);
+    //        }
+    //        else
+    //        {
+    //            // Prevent user from supplying their own value
+    //            this.unset();
+    //        }
+    //    },
+    //    index: true,
+    //    unique: true,
+    //    autoform: {
+    //        omit: true,
+    //    }
+    //},
+
     title: {
         type: String,
         label: 'Title',
@@ -40,7 +63,12 @@ List.schema = new SimpleSchema({
             type: "selectize",
             afFieldInput: {
                 multiple: true,
-                selectizeOptions: {}
+                selectizeOptions: {
+                    delimiter: ',',
+                    persist: true,
+                    create: true,
+                    createOnBlur: true,
+                }
             }
         },
     },
