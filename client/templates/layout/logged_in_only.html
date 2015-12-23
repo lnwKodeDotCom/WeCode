@@ -1,0 +1,7 @@
+<template name="loggedInOnly">
+    {{#if currentUser}}
+        {{> Template.contentBlock}}
+    {{else}}
+        Please log in to see this page.
+    {{/if}}
+</template>
