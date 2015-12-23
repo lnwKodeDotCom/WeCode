@@ -24,7 +24,12 @@ less
 aldeed:simple-schema
 aldeed:collection2
 aldeed:autoform
+
 arillo:flow-router-helpers
 zimme:active-route
+
 q42:autoform-markdown
 sacha:spin
+
+ian:accounts-ui-bootstrap-3
+accounts-password

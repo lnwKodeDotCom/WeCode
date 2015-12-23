@@ -1,11 +1,15 @@
-FlowRouter.route('/', {
+const publicSection = FlowRouter.group({
+    name: 'public'
+});
+
+publicSection.route('/', {
     name: 'home',
     action() {
         BlazeLayout.render('default', {main: 'homePage'});
     }
 });
 
-FlowRouter.route('/posts', {
+publicSection.route('/posts', {
     name: 'posts',
 
     action() {
@@ -13,17 +17,9 @@ FlowRouter.route('/posts', {
     }
 });
 
-FlowRouter.route('/post/:id', {
+publicSection.route('/post/:id', {
     name: 'post',
     action() {
         BlazeLayout.render('default', {main: 'postPage'});
     }
 })
-
-FlowRouter.route('/add', {
-    name: 'addPost',
-
-    action() {
-        BlazeLayout.render('default', {main: 'addPostPage'});
-    }
-});
