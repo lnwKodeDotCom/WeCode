@@ -40,17 +40,7 @@ List.schema = new SimpleSchema({
             type: "selectize",
             afFieldInput: {
                 multiple: true,
-                selectizeOptions: {
-                    delimiter: ',',
-                    persist: false,
-                    create: function(input) {
-                        return {
-                            value: input,
-                            text: input
-                        }
-                    },
-                    options: ['abc','def']
-                }
+                selectizeOptions: {}
             }
         },
     },
@@ -99,6 +89,9 @@ List.schema = new SimpleSchema({
             }
         },
         denyInsert: true,
+        autoform: {
+            omit: true,
+        }
     }
 });
 

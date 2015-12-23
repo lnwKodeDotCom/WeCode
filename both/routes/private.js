@@ -16,3 +16,11 @@ privateSection.route('/add', {
         BlazeLayout.render('default', {main: 'addPostPage'});
     }
 });
+
+privateSection.route('/post/:id/edit', {
+    name: 'editPost',
+    action() {
+        BlazeLayout.render('default', {main: 'editPostPage'});
+    }
+})
+
