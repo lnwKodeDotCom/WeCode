@@ -124,3 +124,11 @@ List.schema = new SimpleSchema({
 });
 
 List.attachSchema( List.schema );
+
+List.helpers({
+    excerpt() {
+        const MAX_LINES = 3;
+        let lines = this.description.split('\n');
+        return _.first(lines, MAX_LINES).join('\n');
+    }
+});
