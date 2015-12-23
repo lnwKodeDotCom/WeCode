@@ -1,7 +1,12 @@
 <template name="loggedInOnly">
-    {{#if currentUser}}
-        {{> Template.contentBlock}}
+    {{#if authInProcess}}
+        {{> spinner}}
     {{else}}
-        Please log in to see this page.
+        {{#if canShow}}
+            {{> UI.contentBlock }}
+        {{else}}
+            <p>You are not authorized to view this page.</p>
+            <p>Please login to view this page</p>
+        {{/if}}
     {{/if}}
 </template>
