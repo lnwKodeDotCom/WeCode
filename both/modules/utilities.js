@@ -16,5 +16,20 @@ const _string2slug = (str='') => {
     return str;
 };
 
+const _userEmail = () => {
+    const user = Meteor.user();
+    if (user && user.emails && user.emails.length>0 && user.emails[0] && user.emails[0].address) {
+        return user.emails[0].address;
+    } else {
+        return '';
+    }
+};
+
+const _userZarazi = () => {
+    return Modules.both.utilities.userEmail()==='zarazi@gmail.com';
+}
+
 Modules.both.utilities = {};
 Modules.both.utilities.string2slug = _string2slug;
+Modules.both.utilities.userEmail = _userEmail;
+Modules.both.utilities.userZarazi = _userZarazi;
