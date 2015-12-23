@@ -10,7 +10,29 @@
         }
     }
 
+    .jumbotron.slim {
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
     .markdownControls {
         display: none;
+    }
+
+    .selectize-input {
+        border-radius: 0;
+        &.focus {
+            border-color: transparent;
+            box-shadow: none;
+        }
+    }
+    .selectize-input > .item {
+        border-radius: 0;
+        background-color: rgb(43, 62, 80);
+        color: white;
+        padding: 2px 5px;
+        &.active {
+            background-color: #DF691A;
+        }
     }
 }

@@ -32,6 +32,29 @@ List.schema = new SimpleSchema({
         }
     },
 
+    tags: {
+        type: [String],
+        optional: true,
+        max: 20,
+        autoform: {
+            type: "selectize",
+            afFieldInput: {
+                multiple: true,
+                selectizeOptions: {
+                    delimiter: ',',
+                    persist: false,
+                    create: function(input) {
+                        return {
+                            value: input,
+                            text: input
+                        }
+                    },
+                    options: ['abc','def']
+                }
+            }
+        },
+    },
+
     owner_id: {
         type: String,
         optional: true,
