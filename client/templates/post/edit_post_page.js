@@ -3,7 +3,7 @@ Template.editPostPage.onCreated( () => {
     t.post_id = FlowRouter.getParam('id');
     t.autorun(()=>{
         t.subscribe('listForId', t.post_id );
-    })
+    });
 });
 
 Template.editPostPage.helpers({

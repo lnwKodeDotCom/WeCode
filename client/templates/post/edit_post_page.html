@@ -4,12 +4,16 @@
             <h2>Edit Post</h2>
         </div>
 
-        {{#autoForm doc=post collection="List" id="editPostForm" type="update"}}
-            {{> afQuickField name='title'}}
-            {{> afQuickField name='description'}}
-            {{> afQuickField name='tags' class="tags" selectizeOptions=tags}}
-            <button type="submit" class="btn btn-primary">Save</button>
+        {{#if Template.subscriptionsReady}}
+            {{#autoForm doc=post collection="List" id="editPostForm" type="update"}}
+                {{> afQuickField name='title'}}
+                {{> afQuickField name='description'}}
+                {{> afQuickField name='tags' class="tags" selectizeOptions=tags}}
+                <button type="submit" class="btn btn-primary">Save</button>
         {{/autoForm}}
+        {{else}}
+            {{> spinner}}
+        {{/if}}
 
     {{/loggedInOnly}}
 </template>
