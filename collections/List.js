@@ -51,6 +51,7 @@ List.schema = new SimpleSchema({
         max: 3000,
         autoform: {
             type: 'markdown',
+            rows: 10,
         }
     },
 
