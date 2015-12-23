@@ -2,19 +2,14 @@
     {{# loggedInOnly}}
         {{#if Template.subscriptionsReady}}
             {{# ownerOnly doc=post}}
-                <div class="jumbotron slim">
-                    <div class="head-and-button">
-                        <h3>Edit Post</h3>
-                        <div class="pull-right">
-                            <a class="btn btn-success" href="{{pathFor 'post' id=post._id }}">View</a>
-                        </div>
-                    </div>
-                </div>
                 {{#autoForm doc=post collection="List" id="editPostForm" type="update"}}
-                    {{> afQuickField name='title'}}
-                    {{> afQuickField name='description'}}
-                    {{> afQuickField name='tags' class="tags" selectizeOptions=tags}}
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    {{> afQuickField name="title" label="Edit title"}}
+                    {{> afQuickField name="description"  label="Edit details"}}
+                    {{> afQuickField name="tags" label="Edit tags" class="tags" selectizeOptions=tags}}
+                    <div class="text-left">
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                        <button type="cancel" class="btn btn-default">Cancel</button>
+                    </div>
                 {{/autoForm}}
             {{/ownerOnly}}
         {{else}}
