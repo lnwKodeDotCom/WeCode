@@ -35,6 +35,16 @@ List.schema = new SimpleSchema({
     owner_id: {
         type: String,
         optional: true,
+        autoValue: function() {
+            const userId = Meteor.userId() || '';
+            if (this.isInsert) {
+                return userId;
+            } else if (this.isUpsert) {
+                return {$setOnInsert: userId};
+            } else {
+                this.unset();  // Prevent user from supplying their own value
+            }
+        },
         autoform: {
             omit: true,
         }
