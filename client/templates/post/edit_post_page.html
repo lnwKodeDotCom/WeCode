@@ -1,7 +1,12 @@
 <template name="editPostPage">
     {{# loggedInOnly}}
         <div class="jumbotron slim">
-            <h2>Edit Post</h2>
+            <div class="head-and-button">
+                <h3>Edit Post</h3>
+                <div class="pull-right">
+                    <a class="btn btn-success" href="{{pathFor 'post' id=post._id }}">View</a>
+                </div>
+            </div>
         </div>
 
         {{#if Template.subscriptionsReady}}
