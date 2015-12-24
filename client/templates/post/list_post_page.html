@@ -7,7 +7,7 @@
             <div class="jumbotron post">
                 <h3><a href="{{pathFor 'post' id=post._id}}">{{post.title}}</a>
                     <br><div class="wrote-by">{{#with post.ownerName}}by {{this}}{{/with}}
-                        @ {{post.dateCreated}}</div>
+                        @ {{>_timeAgo timestamp=post.dateLastUpdated}}</div>
                 </h3>
                 <div class="markdown">{{{renderMarkdownEmoji post.excerpt}}}</div>
             </div>
