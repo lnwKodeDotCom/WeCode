@@ -1,0 +1,10 @@
+<template name="showComments">
+    {{#waitingFor status=Template.subscriptionsReady}}
+        {{#each message in comments}}
+            <div class="jumbotron slim">
+                <div class="markdown">{{{renderMarkdown message.description}}}</div>
+            </div>
+        {{else}}
+        {{/each}}
+    {{/waitingFor}}
+</template>
