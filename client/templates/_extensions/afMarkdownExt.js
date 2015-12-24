@@ -1,0 +1,1 @@
+Template.afMarkdownExt.replaces("afMarkdown");

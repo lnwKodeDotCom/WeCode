@@ -1,39 +1,99 @@
+.navbar-nav > li > a {
+    font-size: medium;
+}
+
+.nav-tabs > li > a {
+    padding: 5px 15px;
+    font-size: smaller;
+}
+
 .container.page {
     margin-top: 72px;
 
-    .jumbotron.post {
-        padding-top: 12px;
-        padding-bottom: 24px;
+    .jumbotron {
+        margin-bottom: 15px;
+        &:last-child {
+            margin-bottom: 30px;
+        }
 
-        .markdown p {
+        &.post {
+            padding-top: 12px;
+            padding-bottom: 24px;
+        }
+        &.slim {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            //margin-bottom: 12px;
+        }
+
+        p {
             font-size: medium;
         }
-    }
 
-    .jumbotron.slim {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        margin-bottom: 12px;
-    }
-
-    .jumbotron .head-and-button {
-        h3 {
-            display: inline-block;
+        .head-and-button {
+            h3 {
+                display: inline-block;
+            }
+            div {
+                display: inline-block;
+                position: relative;
+                a {
+                    position: absolute;
+                    top: 10px;
+                    right: 0px;
+                }
+            }
         }
-        div {
-            display: inline-block;
-            position: relative;
-            a {
-                position: absolute;
-                top: 10px;
-                right: 0px;
+        .markdown p {
+            font-size: medium;
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .wrote-by {
+            color: #888;
+            font-size: medium;
+            &.small {
+                font-size: 80%;
             }
         }
     }
 
-    .markdownControls {
-        display: none;
+    form {
+        input[name="title"] {
+            //background-color: #4E5D6C;
+            //color: #EBEBEB;
+            font-size: 26px;
+            height: auto;
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        textarea[name="description"] {
+            //background-color: #4E5D6C;
+            //color: #EBEBEB;
+        }
     }
+
+    .markdownContent, .markdownPreview {
+        width: 100%;
+        float: none;
+        padding-left: 0;
+
+        .preview {
+            color: inherit;
+            background-color: rgb(78, 93, 108);
+        }
+    }
+    //.markdownControls, .markdownPreview {
+    //    display: none;
+    //}
+    //
+    //.markdownContent {
+    //    width: 100%;
+    //}
 
     .selectize-input {
         border-radius: 0;
@@ -44,11 +104,11 @@
     }
     .selectize-input > .item {
         border-radius: 0;
-        background-color: rgb(43, 62, 80);
+        background-color: #4E5D6C;
         color: white;
         padding: 2px 5px;
         &.active {
-            background-color: #DF691A;
+            background-color: #2B3E50;
         }
     }
 }
