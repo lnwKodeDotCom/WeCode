@@ -39,3 +39,7 @@ aldeed:template-extension
 dburles:collection-helpers
 underscore
 momentjs:moment
+meteorhacks:npm
+
+
+npm-container
