@@ -7,7 +7,7 @@ Develop from ZapKit-Starter.
   <tbody>
     <tr>
       <th>App Version</th>
-      <td>v0.0.5</td>
+      <td>v0.0.6</td>
     </tr>
     <tr>
       <th>Kit Version</th>
