@@ -120,3 +120,13 @@ Comments.helpers({
         return Modules.both.utilities.userName(this.owner_id);
     }
 });
+
+if (Meteor.isServer) {
+    Comments.after.insert(function (userId, doc) {
+        let userName = Modules.both.utilities.userName(userId),
+            path = FlowRouter.path('post', {id: doc.document_id}).substring(1),
+            comment = doc.description.substring(0,100),
+            fields = [{title:'comment', value:comment}];
+        Modules.slack.sendToSlack('ment',userName,Meteor.absoluteUrl(path),fields);
+    });
+}

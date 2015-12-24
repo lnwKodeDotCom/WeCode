@@ -42,6 +42,7 @@ List.schema = new SimpleSchema({
         label: 'Title',
         optional: false,
         min: 5,
+        max: 100
     },
 
     description: {
@@ -137,5 +138,14 @@ List.helpers({
     dateCreated() {
         return moment(this.date_created).format('DD.MM.YYYY');
     }
-
 });
+
+if (Meteor.isServer) {
+    List.after.insert(function (userId, doc) {
+        let userName = Modules.both.utilities.userName(userId),
+            path = FlowRouter.path('post', {id: doc._id}).substring(1),
+            title = doc.description,
+            fields = [{title:'title', value:title}];
+        Modules.slack.sendToSlack('post',userName,Meteor.absoluteUrl(path),fields);
+    });
+}
