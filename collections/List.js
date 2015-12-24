@@ -134,5 +134,8 @@ List.helpers({
     ownerName() {
         return Modules.both.utilities.userName(this.owner_id);
     },
+    dateCreated() {
+        return moment(this.date_created).format('DD.MM.YYYY');
+    }
 
 });

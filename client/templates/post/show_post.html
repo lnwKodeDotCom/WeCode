@@ -2,9 +2,8 @@
     <div class="jumbotron post">
         <div class="head-and-button">
             <h3>{{doc.title}}
-                {{#with doc.ownerName}}
-                    <br><div class="wrote-by">by {{this}}</div>
-                {{/with}}
+                <br><div class="wrote-by">{{#with doc.ownerName}}by {{this}}{{/with}}
+                    @ {{doc.dateCreated}}</div>
             </h3>
             {{#if ownDocument doc}}
                 <div class="pull-right">

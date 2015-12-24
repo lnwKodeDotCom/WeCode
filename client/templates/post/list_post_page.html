@@ -6,9 +6,8 @@
         {{#each post in list}}
             <div class="jumbotron post">
                 <h3><a href="{{pathFor 'post' id=post._id}}">{{post.title}}</a>
-                    {{#with post.ownerName}}
-                        <br><div class="wrote-by">by {{this}}</div>
-                    {{/with}}
+                    <br><div class="wrote-by">{{#with post.ownerName}}by {{this}}{{/with}}
+                        @ {{post.dateCreated}}</div>
                 </h3>
                 <div class="markdown">{{{renderMarkdown post.excerpt}}}</div>
             </div>
