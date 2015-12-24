@@ -8,10 +8,6 @@ Template.showComments.onCreated(()=>{
 
 Template.showComments.helpers({
     comments() {
-        return [
-            {description: 'Great post!'},
-            {description: 'Thanks!'},
-        ];
-        //return Comments.find().fetch();
+        return Comments.find().fetch();
     }
 });
