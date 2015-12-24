@@ -2,8 +2,8 @@
     {{#waitingFor status=Template.subscriptionsReady}}
         {{#each message in comments}}
             <div class="jumbotron slim">
-                <div class="small wrote-by">{{message.ownerName}}:</div>
-                <div class="markdown">{{{renderMarkdown message.description}}}</div>
+                <div class="small wrote-by">{{message.ownerName}} @ {{>_timeAgo timestamp=message.dateLastUpdated}}</div>
+                <div class="markdown">{{{renderMarkdownEmoji message.description}}}</div>
             </div>
         {{else}}
         {{/each}}
