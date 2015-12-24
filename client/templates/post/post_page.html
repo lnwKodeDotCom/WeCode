@@ -1,18 +1,6 @@
 <template name="postPage">
     {{#waitingFor status=Template.subscriptionsReady}}
-        <div class="jumbotron post">
-            <div class="head-and-button">
-                <h3>{{post.title}}</h3>
-                {{#if ownDocument}}
-                    <div class="pull-right">
-                        <a class="btn btn-primary" href="{{pathFor 'editPost' id=post._id }}">Edit</a>
-                    </div>
-                {{/if}}
-            </div>
-            <hr/>
-            <div class="markdown">{{{renderMarkdown post.description}}}</div>
-            <hr/>
-            <div>{{#each post.tags}}<span class="label label-primary">{{this}}</span>&nbsp;{{/each}}</div>
-        </div>
+        {{>showPost doc=post}}
+        {{>showComment doc=post}}
     {{/waitingFor}}
 </template>
