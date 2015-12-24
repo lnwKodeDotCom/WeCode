@@ -47,8 +47,8 @@ let _sendToSlack = (type, userName, url, fields) => {
     let prefix = _texts[type].text,
         text = {text:`${prefix} ${userName}\n<${url}>`},
         payload = _.extend({},_bot, text, _wrapAttachment(fields));
-    console.log(payload);
-    //Slack.send(payload);
+    //console.log(payload);
+    Slack.send(payload);
 }
 
 Modules.slack = {};
