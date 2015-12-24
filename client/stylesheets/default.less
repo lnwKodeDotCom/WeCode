@@ -1,3 +1,7 @@
+.navbar-nav > li > a {
+    font-size: medium;
+}
+
 .container.page {
     margin-top: 72px;
 
@@ -7,6 +11,9 @@
 
         .markdown p {
             font-size: medium;
+            img {
+                max-width: 100%;
+            }
         }
     }
 
@@ -31,9 +38,40 @@
         }
     }
 
-    .markdownControls {
-        display: none;
+    form {
+        input[name="title"] {
+            //background-color: #4E5D6C;
+            //color: #EBEBEB;
+            font-size: 26px;
+            height: auto;
+
+            padding-top: 12px;
+            padding-bottom: 12px;
+            margin-bottom: 12px;
+        }
+        textarea[name="description"] {
+            //background-color: #4E5D6C;
+            //color: #EBEBEB;
+        }
     }
+
+    .markdownContent, .markdownPreview {
+        width: 100%;
+        float: none;
+        padding-left: 0;
+
+        .preview {
+            color: inherit;
+            background-color: rgb(78, 93, 108);
+        }
+    }
+    //.markdownControls, .markdownPreview {
+    //    display: none;
+    //}
+    //
+    //.markdownContent {
+    //    width: 100%;
+    //}
 
     .selectize-input {
         border-radius: 0;
@@ -44,11 +82,11 @@
     }
     .selectize-input > .item {
         border-radius: 0;
-        background-color: rgb(43, 62, 80);
+        background-color: #4E5D6C;
         color: white;
         padding: 2px 5px;
         &.active {
-            background-color: #DF691A;
+            background-color: #2B3E50;
         }
     }
 }

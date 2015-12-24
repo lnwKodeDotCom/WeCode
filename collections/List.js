@@ -48,7 +48,7 @@ List.schema = new SimpleSchema({
         type: String,
         label: 'Details',
         optional: true,
-        max: 1000,
+        max: 3000,
         autoform: {
             type: 'markdown',
             rows: 10,
@@ -124,3 +124,11 @@ List.schema = new SimpleSchema({
 });
 
 List.attachSchema( List.schema );
+
+List.helpers({
+    excerpt() {
+        const MAX_LINES = 3;
+        let lines = this.description.split('\n');
+        return _.first(lines, MAX_LINES).join('\n');
+    }
+});

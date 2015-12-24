@@ -1,8 +1,5 @@
 <template name="addPostPage">
     {{# loggedInOnly}}
-        <div class="jumbotron slim">
-            <h3>New Post</h3>
-        </div>
-        {{> quickForm collection="List" id="addPostForm" type="insert" buttonContent="Post"}}
+        {{> quickForm collection="List" id="addPostForm" type="insert" buttonContent="Create post"}}
     {{/loggedInOnly}}
 </template>

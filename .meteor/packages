@@ -35,3 +35,6 @@ ian:accounts-ui-bootstrap-3
 accounts-password
 chhib:selectize-bootstrap-3
 comerc:autoform-selectize
+aldeed:template-extension
+dburles:collection-helpers
+underscore
