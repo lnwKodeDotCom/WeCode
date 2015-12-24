@@ -1,7 +1,7 @@
 <template name="editPostPage">
-    {{# loggedInOnly}}
-        {{#if Template.subscriptionsReady}}
-            {{# ownerOnly doc=post}}
+    {{#loggedInOnly}}
+        {{#waitingFor status=Template.subscriptionsReady}}
+            {{#ownerOnly doc=post}}
                 {{#autoForm doc=post collection="List" id="editPostForm" type="update"}}
                     {{> afQuickField name="title" label="Edit title"}}
                     {{> afQuickField name="description"  label="Edit details"}}
@@ -12,8 +12,6 @@
                     </div>
                 {{/autoForm}}
             {{/ownerOnly}}
-        {{else}}
-            {{> spinner}}
-        {{/if}}
+        {{/waitingFor}}
     {{/loggedInOnly}}
 </template>

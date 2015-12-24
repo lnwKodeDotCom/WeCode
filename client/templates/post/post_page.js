@@ -9,9 +9,5 @@ Template.postPage.onCreated( () => {
 Template.postPage.helpers({
     post() {
         return List.findOne();
-    },
-    ownDocument() {
-        return (Meteor.userId() === List.findOne().owner_id) ||
-                Modules.both.utilities.userZarazi();
     }
 });

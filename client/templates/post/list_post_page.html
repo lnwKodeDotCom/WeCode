@@ -1,18 +1,18 @@
 <template name="listPostPage">
-    <div class="jumbotron">
-        <h2>Post List</h2>
-    </div>
-
-    {{#if Template.subscriptionsReady}}
+    {{#waitingFor status=Template.subscriptionsReady}}
+        <div class="jumbotron">
+            <h2>Post List</h2>
+        </div>
         {{#each post in list}}
             <div class="jumbotron post">
-                <a href="{{pathFor 'post' id=post._id}}"><h3>{{post.title}}</h3></a>
+                <h3><a href="{{pathFor 'post' id=post._id}}">{{post.title}}</a>
+                    <br><div class="wrote-by">{{#with post.ownerName}}by {{this}}{{/with}}
+                        @ {{post.dateCreated}}</div>
+                </h3>
                 <div class="markdown">{{{renderMarkdown post.excerpt}}}</div>
             </div>
         {{else}}
             No data
         {{/each}}
-    {{else}}
-        {{> spinner}}
-    {{/if}}
+    {{/waitingFor}}
 </template>

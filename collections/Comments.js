@@ -1,18 +1,18 @@
-List = new Meteor.Collection( 'List' );
+Comments = new Meteor.Collection( 'Comments' );
 
-List.allow({
-    insert: (userId, document) => true,
+Comments.allow({
+    insert: (userId, document) => !!Meteor.userId(),
     update: (userId, document) => (document.owner_id === Meteor.userId()) || Modules.both.utilities.userZarazi(),
     remove: (userId, document) => false
 });
 
-List.deny({
+Comments.deny({
     insert: (userId, document) => false,
     update: (userId, document) => false,
     remove: (userId, document) => false
 });
 
-List.schema = new SimpleSchema({
+Comments.schema = new SimpleSchema({
 
     //index_name: {
     //    type: String,
@@ -37,40 +37,30 @@ List.schema = new SimpleSchema({
     //    }
     //},
 
-    title: {
+    //title: {
+    //    type: String,
+    //    label: 'Title',
+    //    optional: false,
+    //    min: 5,
+    //},
+
+    document_id: {
         type: String,
-        label: 'Title',
-        optional: false,
-        min: 5,
+        label: 'Document ID',
+        autoform: {
+            type: "hidden"
+        }
     },
 
     description: {
         type: String,
         label: 'Details',
-        optional: true,
-        max: 3000,
+        min: 5,
+        max: 1000,
         autoform: {
             type: 'markdown',
-            rows: 10,
+            rows: 5,
         }
-    },
-
-    tags: {
-        type: [String],
-        optional: true,
-        max: 20,
-        autoform: {
-            type: "selectize",
-            afFieldInput: {
-                multiple: true,
-                selectizeOptions: {
-                    delimiter: ',',
-                    persist: true,
-                    create: true,
-                    createOnBlur: true,
-                }
-            }
-        },
     },
 
     owner_id: {
@@ -123,19 +113,10 @@ List.schema = new SimpleSchema({
     }
 });
 
-List.attachSchema( List.schema );
+Comments.attachSchema( Comments.schema );
 
-List.helpers({
-    excerpt() {
-        const MAX_LINES = 3;
-        let lines = this.description.split('\n');
-        return _.first(lines, MAX_LINES).join('\n');
-    },
+Comments.helpers({
     ownerName() {
         return Modules.both.utilities.userName(this.owner_id);
-    },
-    dateCreated() {
-        return moment(this.date_created).format('DD.MM.YYYY');
     }
-
 });

@@ -38,3 +38,4 @@ comerc:autoform-selectize
 aldeed:template-extension
 dburles:collection-helpers
 underscore
+momentjs:moment
