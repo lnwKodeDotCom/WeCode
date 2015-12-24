@@ -5,7 +5,11 @@
         </div>
         {{#each post in list}}
             <div class="jumbotron post">
-                <a href="{{pathFor 'post' id=post._id}}"><h3>{{post.title}}</h3></a>
+                <h3><a href="{{pathFor 'post' id=post._id}}">{{post.title}}</a>
+                    {{#with post.ownerName}}
+                        <br><div class="wrote-by">by {{this}}</div>
+                    {{/with}}
+                </h3>
                 <div class="markdown">{{{renderMarkdown post.excerpt}}}</div>
             </div>
         {{else}}

@@ -1,7 +1,11 @@
 <template name="showPost">
     <div class="jumbotron post">
         <div class="head-and-button">
-            <h3>{{doc.title}}</h3>
+            <h3>{{doc.title}}
+                {{#with doc.ownerName}}
+                    <br><div class="wrote-by">by {{this}}</div>
+                {{/with}}
+            </h3>
             {{#if ownDocument doc}}
                 <div class="pull-right">
                     <a class="btn btn-primary" href="{{pathFor 'editPost' id=doc._id }}">Edit</a>

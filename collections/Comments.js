@@ -116,4 +116,7 @@ Comments.schema = new SimpleSchema({
 Comments.attachSchema( Comments.schema );
 
 Comments.helpers({
+    ownerName() {
+        return Modules.both.utilities.userName(this.owner_id);
+    }
 });
