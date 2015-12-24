@@ -44,9 +44,12 @@ Comments.schema = new SimpleSchema({
     //    min: 5,
     //},
 
-    for_document_id: {
+    document_id: {
         type: String,
-        label: 'Document ID'
+        label: 'Document ID',
+        autoform: {
+            type: "hidden"
+        }
     },
 
     description: {
@@ -56,7 +59,7 @@ Comments.schema = new SimpleSchema({
         max: 1000,
         autoform: {
             type: 'markdown',
-            rows: 10,
+            rows: 5,
         }
     },
 
