@@ -121,6 +121,9 @@ Comments.helpers({
     },
     lastUpdatedFromNow() {
         return moment(this.date_updated ? this.date_updated : this.date_created).fromNow();
+    },
+    dateLastUpdated() {
+        return this.date_updated ? this.date_updated : this.date_created;
     }
 });
 

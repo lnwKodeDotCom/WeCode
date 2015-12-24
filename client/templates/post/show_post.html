@@ -3,7 +3,7 @@
         <div class="head-and-button">
             <h3>{{doc.title}}
                 <br><div class="wrote-by">{{#with doc.ownerName}}by {{this}}{{/with}}
-                    @ {{doc.lastUpdatedFromNow}}</div>
+                    @ {{>_timeAgo timestamp=doc.dateLastUpdated}}</div>
             </h3>
             {{#if ownDocument doc}}
                 <div class="pull-right">
