@@ -16,7 +16,7 @@ const _string2slug = (str='') => {
     return str;
 };
 
-const _userEmail = (id=Meteor.userId()) => {
+const _userEmail = (id) => {
     const user = Meteor.users.findOne(id);
     if (user && user.emails && user.emails.length>0 && user.emails[0] && user.emails[0].address) {
         return user.emails[0].address;
@@ -26,7 +26,7 @@ const _userEmail = (id=Meteor.userId()) => {
 };
 
 const _userZarazi = () => {
-    return Modules.both.utilities.userEmail()==='zarazi@gmail.com';
+    return Modules.both.utilities.userEmail(Meteor.userId())==='zarazi@gmail.com';
 }
 
 const _userName = (id) => {
