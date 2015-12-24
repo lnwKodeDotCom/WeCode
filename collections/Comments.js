@@ -118,6 +118,9 @@ Comments.attachSchema( Comments.schema );
 Comments.helpers({
     ownerName() {
         return Modules.both.utilities.userName(this.owner_id);
+    },
+    lastUpdatedFromNow() {
+        return moment(this.date_updated ? this.date_updated : this.date_created).fromNow();
     }
 });
 

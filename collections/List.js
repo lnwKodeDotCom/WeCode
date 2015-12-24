@@ -137,6 +137,12 @@ List.helpers({
     },
     dateCreated() {
         return moment(this.date_created).format('DD.MM.YYYY');
+    },
+    dateUpdated() {
+        return moment(this.date_updated).format('DD.MM.YYYY');
+    },
+    lastUpdatedFromNow() {
+        return moment(this.date_updated ? this.date_updated : this.date_created).fromNow();
     }
 });
 
