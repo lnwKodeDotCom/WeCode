@@ -1,0 +1,7 @@
+<template name="nonDraftOnly">
+    {{#if nonDraft doc}}
+        {{> UI.contentBlock }}
+    {{else}}
+        <p class="center-block text-center">This document is not ready to view yet.</p>
+    {{/if}}
+</template>
