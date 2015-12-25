@@ -31,6 +31,13 @@ Template.editPostPage.helpers({
     }
 });
 
+Template.editPostPage.events({
+    'click .btn-cancel':(event, template)=>{
+        event.preventDefault();
+        FlowRouter.go('post', {id: FlowRouter.getParam('id')});
+    }
+});
+
 AutoForm.hooks({
     editPostForm: {
         after: {
