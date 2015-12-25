@@ -74,6 +74,14 @@ List.schema = new SimpleSchema({
         },
     },
 
+    is_draft: {
+        type: Boolean,
+        optional: true,
+        autoform: {
+            type: "hidden"
+        }
+    },
+
     owner_id: {
         type: String,
         optional: true,

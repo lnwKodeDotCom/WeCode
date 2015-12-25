@@ -1,5 +1,15 @@
 <template name="addPostPage">
     {{# loggedInOnly}}
-        {{> quickForm collection="List" id="addPostForm" type="insert" buttonContent="Create post"}}
+        {{#autoForm collection="List" id="addPostForm" type="insert"}}
+            {{> afQuickField name="title" label="New title"}}
+            {{> afQuickField name="description"  label="New details"}}
+            {{> afQuickField name="tags" label="Edit tags" class="tags" selectizeOptions=tags}}
+            {{> afQuickField name="is_draft"}}
+            <div class="text-left">
+                <button type="submit" class="btn btn-warning btn-draft">Save draft</button>
+                <button type="submit" class="btn btn-primary">Create post</button>
+                <button type="reset" class="btn btn-default btn-cancel">Clear</button>
+            </div>
+        {{/autoForm}}
     {{/loggedInOnly}}
 </template>
