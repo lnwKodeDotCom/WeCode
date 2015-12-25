@@ -1,5 +1,5 @@
 <template name="ownerOnly">
-    {{#if ownDocument}}
+    {{#if ownDocument doc}}
         {{> UI.contentBlock }}
     {{else}}
         <p class="center-block text-center">You are not authorized to view this page.</p>
