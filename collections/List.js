@@ -1,7 +1,7 @@
 List = new Meteor.Collection( 'List' );
 
 List.allow({
-    insert: (userId, document) => true,
+    insert: (userId, document) => !!Meteor.userId(),
     update: (userId, document) => (document.owner_id === Meteor.userId()) || Modules.both.utilities.userZarazi(),
     remove: (userId, document) => false
 });
