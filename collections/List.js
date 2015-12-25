@@ -154,6 +154,9 @@ List.helpers({
     },
     dateLastUpdated() {
         return this.date_updated ? this.date_updated : this.date_created;
+    },
+    draftClass() {
+        return this.is_draft ? 'draft' : '';
     }
 });
 
