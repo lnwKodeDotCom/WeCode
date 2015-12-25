@@ -1,7 +1,7 @@
 Template.listPostPage.onCreated( () => {
-    var t = Template.instance();
+    let t = Template.instance();
     t.autorun(() => {
-        t.subscribe('list');
+        t.subscribe('list', !!Meteor.user());
     })
 
 });

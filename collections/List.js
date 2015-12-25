@@ -74,6 +74,14 @@ List.schema = new SimpleSchema({
         },
     },
 
+    is_draft: {
+        type: Boolean,
+        optional: true,
+        autoform: {
+            type: "hidden"
+        }
+    },
+
     owner_id: {
         type: String,
         optional: true,
@@ -146,6 +154,9 @@ List.helpers({
     },
     dateLastUpdated() {
         return this.date_updated ? this.date_updated : this.date_created;
+    },
+    draftClass() {
+        return this.is_draft ? 'draft' : '';
     }
 });
 
