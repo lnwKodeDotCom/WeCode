@@ -3,9 +3,7 @@ Meteor.methods({
         return `Hello ${me}`;
     },
     deletePost(id) {
-        console.log('Delete post for id:', id);
-        //TODO: implement post deletion
-
+        List.remove(id);
         return true;
     }
 
