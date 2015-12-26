@@ -6,9 +6,15 @@
                     {{> afQuickField name="title" label="Edit title"}}
                     {{> afQuickField name="description"  label="Edit details"}}
                     {{> afQuickField name="tags" label="Edit tags" class="tags" selectizeOptions=tags}}
+                    {{> afQuickField name="is_draft"}}
                     <div class="text-left">
-                        <button type="submit" class="btn btn-primary">Save changes</button>
-                        <button type="cancel" class="btn btn-default btn-cancel">Cancel</button>
+                        {{#if post.is_draft}}
+                            <button type="submit" class="btn btn-warning btn-draft">Save draft</button>
+                            <button type="submit" class="btn btn-primary btn-create">Create post</button>
+                        {{else}}
+                            <button type="submit" class="btn btn-primary">Save changes</button>
+                        {{/if}}
+                        <button type="button" class="btn btn-default btn-cancel">Cancel</button>
                     </div>
                 {{/autoForm}}
             {{/ownerOnly}}

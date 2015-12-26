@@ -74,6 +74,14 @@ List.schema = new SimpleSchema({
         },
     },
 
+    is_draft: {
+        type: Boolean,
+        optional: true,
+        autoform: {
+            type: "hidden"
+        }
+    },
+
     owner_id: {
         type: String,
         optional: true,
@@ -129,7 +137,7 @@ List.attachSchema( List.schema );
 List.helpers({
     excerpt() {
         const MAX_LINES = 3;
-        let lines = this.description.split('\n');
+        let lines = this.description ? this.description.split('\n') : '';
         return _.first(lines, MAX_LINES).join('\n');
     },
     ownerName() {
@@ -146,6 +154,9 @@ List.helpers({
     },
     dateLastUpdated() {
         return this.date_updated ? this.date_updated : this.date_created;
+    },
+    draftClass() {
+        return this.is_draft ? 'draft' : '';
     }
 });
 
@@ -153,8 +164,20 @@ if (Meteor.isServer) {
     List.after.insert(function (userId, doc) {
         let userName = Modules.both.utilities.userName(userId),
             path = FlowRouter.path('post', {id: doc._id}).substring(1),
-            title = doc.description,
+            title = doc.title,
             fields = [{title:'title', value:title}];
         Modules.slack.sendToSlack('post',userName,Meteor.absoluteUrl(path),fields);
     });
+
+    List.after.remove( (userId, doc) => {
+        let comments = Comments.find({document_id: doc._id}).fetch(),
+            commentIds = comments.map((c) => c._id);
+        if (commentIds.length>0) {
+            console.log('Remove comments of this doc._id:', doc._id, commentIds);
+            Comments.direct.remove({_id: {$in: commentIds}});
+        } else {
+            console.log('No comments to remove');
+        }
+    });
+
 }

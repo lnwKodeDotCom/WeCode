@@ -1,9 +1,13 @@
 <template name="postPage">
     {{#waitingFor status=Template.subscriptionsReady}}
-        {{>showPost doc=post}}
-        {{>showComments doc=post}}
-        {{#if currentUser}}
-            {{>addComment doc=post}}
-        {{/if}}
+        {{#nonDraftOnly doc=post}}
+            {{>showPost doc=post}}
+            {{#unless post.is_draft}}
+                {{>showComments doc=post}}
+                {{#if currentUser}}
+                    {{>addComment doc=post}}
+                {{/if}}
+            {{/unless}}
+        {{/nonDraftOnly}}
     {{/waitingFor}}
 </template>

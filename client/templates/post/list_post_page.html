@@ -4,7 +4,7 @@
             <h2>Post List</h2>
         </div>
         {{#each post in list}}
-            <div class="jumbotron post">
+            <div class="jumbotron post {{post.draftClass}}">
                 <h3><a href="{{pathFor 'post' id=post._id}}">{{post.title}}</a>
                     <br><div class="wrote-by">{{#with post.ownerName}}by {{this}}{{/with}}
                         @ {{>_timeAgo timestamp=post.dateLastUpdated}}</div>

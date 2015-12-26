@@ -32,6 +32,10 @@ Template.editPostPage.helpers({
 });
 
 Template.editPostPage.events({
+    'click .btn-create':(event, template)=>{
+        $('input[name="is_draft"]').val('');
+        console.log('Creating post');
+    },
     'click .btn-cancel':(event, template)=>{
         event.preventDefault();
         FlowRouter.go('post', {id: FlowRouter.getParam('id')});
