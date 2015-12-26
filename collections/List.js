@@ -137,7 +137,7 @@ List.attachSchema( List.schema );
 List.helpers({
     excerpt() {
         const MAX_LINES = 3;
-        let lines = this.description.split('\n');
+        let lines = this.description ? this.description.split('\n') : '';
         return _.first(lines, MAX_LINES).join('\n');
     },
     ownerName() {
@@ -164,7 +164,7 @@ if (Meteor.isServer) {
     List.after.insert(function (userId, doc) {
         let userName = Modules.both.utilities.userName(userId),
             path = FlowRouter.path('post', {id: doc._id}).substring(1),
-            title = doc.description,
+            title = doc.title,
             fields = [{title:'title', value:title}];
         Modules.slack.sendToSlack('post',userName,Meteor.absoluteUrl(path),fields);
     });
