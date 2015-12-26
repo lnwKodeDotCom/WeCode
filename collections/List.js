@@ -168,4 +168,16 @@ if (Meteor.isServer) {
             fields = [{title:'title', value:title}];
         Modules.slack.sendToSlack('post',userName,Meteor.absoluteUrl(path),fields);
     });
+
+    List.after.remove( (userId, doc) => {
+        let comments = Comments.find({document_id: doc._id}).fetch(),
+            commentIds = comments.map((c) => c._id);
+        if (commentIds.length>0) {
+            console.log('Remove comments of this doc._id:', doc._id, commentIds);
+            Comments.direct.remove({_id: {$in: commentIds}});
+        } else {
+            console.log('No comments to remove');
+        }
+    });
+
 }
