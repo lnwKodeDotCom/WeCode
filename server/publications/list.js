@@ -5,7 +5,7 @@ Meteor.publish('list', function(showDraft=false) {
         _conditions = showDraft ? {$or:[_non_draft, _draft_and_owner]} : _non_draft;
 
     const
-        _list = List.find(_conditions),
+        _list = List.find(_conditions, {sort:{date_updated:-1, date_created:-1}}),
         list = _list.fetch(),
         writerIds = _.pluck(list, 'owner_id'),
         _users = Meteor.users.find({_id: {$in: writerIds}}, {fields: {_id:1, emails:1}});
